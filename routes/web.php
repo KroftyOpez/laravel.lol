@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -91,4 +92,19 @@ Route::prefix('test3')->group( function(){
         return "Тест - " . $n;
     });
 });
+/*Маршрут, использующий контроллер
+Общий вид: Route::get('/маршрут', ['Полное имя контроллера','имя действия'])*/
+Route::get('/hi', ['App\Http\Controllers\PostController','hello']);
+/*Если мы заюзали имя котнтроллера (use), то можем писать так: */
+Route::get('/hello', [PostController::class,'hello']);
 
+
+
+/* Передача параметра маршрута в контроллер */
+Route::get('/hi/{name}', [PostController::class, 'hello2']);
+
+
+/*Приминение параметров маршрутов*/
+Route::get('/hello/{id}', [PostController::class, 'hello3'])->where('id', '[1-4]');
+
+Route::get('/hello5/{name}', [PostController::class, 'hello5']);
