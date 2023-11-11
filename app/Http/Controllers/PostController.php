@@ -26,7 +26,7 @@ class PostController extends Controller
 
     public function hello5($name){
         $users = [
-            'Дмитрий' => 'Томск',
+            'Дмитрий' => 'Питер',
             'Алексей' => 'Асино',
             'Елизавета' => 'Москва'
         ];
@@ -36,6 +36,14 @@ class PostController extends Controller
             return "Таких не знаем";
         }
 
+    }
+
+    public function hello6(){
+        return view('post.hello');
+    }
+
+    public function hello7($name){
+        return view('post.hello7', ['name' => $name]);
     }
 
 
