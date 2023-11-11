@@ -43,7 +43,7 @@ class PostController extends Controller
     }
 
     public function hello7($name){
-        return view('post.hello7', ['name' => $name]);
+        return view('post.hello7', ['name' => $name, 'title' => 'Заголовок']);
     }
 
 
